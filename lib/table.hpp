@@ -18,7 +18,7 @@ class table{
 		possibilities **_possibilities; // lista de jogadas possiveis, incluindo historico de jogadas
 		priorityQueue _queue; // fila de prioridade das variaveis (para aplicar o MVR)
 		// Funcoes
-		bool checkMove(int x, int y, int v); // checa uma 
+		bool checkMove(int x, int y, int v); // checa uma possibilidade
 		int position(int x, int y){ // funcao auxiliar para poder alocar a matriz com um unico malloc
 			return ((x * _D) + y);
 		}
