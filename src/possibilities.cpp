@@ -1,6 +1,22 @@
 #include "possibilities.hpp"
 #include <climits>
 
+int getNumber(const possibilities p){
+	possibilities test = 1;
+	int counter = 0;
+	for(int i = 0; i < 9; i++){
+		if((test & p) != IMPOSSIBLE)
+			counter++;
+		test = test << 1;
+	}
+	return counter;
+}
+
+bool isValid(const possibilities p, const int test){
+	possibilities t = 1 << (test-1);
+	return((t & p) != IMPOSSIBLE);
+}
+
 int nextPossibility(const possibilities p, const int D, const int current){
 	// A variavel test armazena a possibilidade sendo testada
 	possibilities test = 1 << current;
@@ -15,13 +31,13 @@ int nextPossibility(const possibilities p, const int D, const int current){
 	return 0;
 }
 
-possibilities addPossibility(possibilities p, int v){
+possibilities addPossibility(const possibilities p, const int v){
 	possibilities v2 = v;
 	v2 = 1 << (v2-1);
 	return (p | v2);
 }
 
-possibilities removePossibility(possibilities p, int v){
+possibilities removePossibility(const possibilities p, const int v){
 	possibilities v2 = v;
 	v2 = 1 << (v2-1);
 	v2 = v2 ^ USHRT_MAX;

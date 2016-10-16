@@ -6,28 +6,53 @@
 
 using namespace std;
 
+typedef struct move{
+	bool _success;
+	unsigned char _x;
+	unsigned char _y;
+	unsigned char _value;
+	move(unsigned char x, unsigned char y, unsigned char v){
+		_success = true;
+		_x = x;
+		_y = y;
+		_value = v;
+	}
+	move(int x, int y, int v){
+		_success = true;
+		_x = x;
+		_y = y;
+		_value = v;
+	}
+} move;
+
 class table{
 
 	private:
 		// Variaveis
-		unsigned char mode; // variavel que determina que heuristicas serao utilizadas
-		int _D; // dimensoes
+		unsigned char _mode; // variavel que determina que heuristicas serao utilizadas
 		unsigned char *_values; // vetor contendo os valores salvos em cada posição (possivel usar a funcao position para acessa-lo intuitivamente como matriz)
-		rule *_rules; // lista de regras do tabuleiro
-		int _current; // posicao atual na lista de possibilidades (leia-se profundidade do backtracking)
+		int _D; // dimensoes
+		int _nRules; // numero de regras aplicadas
+		int _tracking; // posicao atual na lista de possibilidades (leia-se profundidade do backtracking)
+		int _lastValue; // ultimi valor testado na atual iteracao
+		int _lastPosition; // ultima posicao a ser alterada na atual iteracao
+		rule **_rules; // lista de regras do tabuleiro
+		move **_movesStack; // Pilha com movimentos feitos durante o backtracking
 		possibilities **_possibilities; // lista de jogadas possiveis, incluindo historico de jogadas
-		priorityQueue _queue; // fila de prioridade das variaveis (para aplicar o MVR)
+		possibilities *_current; // lista de possibilidades atual
+		priorityQueue *_queue; // fila de prioridade das variaveis (para aplicar o MVR)
+
 		// Funcoes
-		bool checkMove(int x, int y, int v); // checa uma possibilidade
-		int position(int x, int y){ // funcao auxiliar para poder alocar a matriz com um unico malloc
-			return ((x * _D) + y);
-		}
-		bool lookAhead(int, int); // funcao que checa se a proxima jogada e valida
+		int position(int, int); // funcao auxiliar para poder alocar a matriz com um unico malloc
+		bool checkMove(move*); // funcao que checa se a jogada e valida
+		void undoMove();
 		void printTable();
+		bool rulesUpdate(int, int, int);
+		move *decideNextMove(); // Funcao que obtem o proximo movimento valido
 	public:
-		table(int D, unsigned char mode); // construtor
-		void addRule(int x1, int y1, int x2, int y2); // adiciona uma nova regra ao tabuleiro
-		void addNumber(int x, int y, int v); // adiciona um numero em determinada posicao do tabuleiro
+		table(int, unsigned char); // construtor
+		void addRule(int, int, int, int); // adiciona uma nova regra ao tabuleiro
+		bool addNumber(int, int, int); // adiciona um numero em determinada posicao do tabuleiro
 		void solve(); // resolve o tabuleiro usando as heuristicas determinadas na sua criacao e imprime a primeira solucao encontrada na tela
 		~table(); // destrutor
 };

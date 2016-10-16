@@ -6,6 +6,8 @@
 // poder ou nao ser aplicado na posicao a qual a variavel foi atribuida.
 typedef short unsigned int possibilities;
 
-int nextPossibility(possibilities, int);
-possibilities addPossibility(possibilities);
-possibilities removePossibility(possibilities);
+int getNumber(const possibilities);
+bool isValid(const possibilities, const int);
+int nextPossibility(const possibilities, const int, const int);
+possibilities addPossibility(const possibilities, const int);
+possibilities removePossibility(const possibilities, const int);
