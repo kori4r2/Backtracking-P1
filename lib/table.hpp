@@ -25,8 +25,9 @@ class table{
 		bool lookAhead(int, int); // funcao que checa se a proxima jogada e valida
 		void printTable();
 	public:
-		table(int i, unsigned char mode); // construtor
-		void addRule(int, int); // adiciona uma nova regra ao tabuleiro
+		table(int D, unsigned char mode); // construtor
+		void addRule(int x1, int y1, int x2, int y2); // adiciona uma nova regra ao tabuleiro
+		void addNumber(int x, int y, int v); // adiciona um numero em determinada posicao do tabuleiro
 		void solve(); // resolve o tabuleiro usando as heuristicas determinadas na sua criacao e imprime a primeira solucao encontrada na tela
 		~table(); // destrutor
 };
