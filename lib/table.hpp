@@ -26,13 +26,11 @@ class table{
 
 	private:
 		// Variaveis
-		unsigned char _mode; // variavel que determina que heuristicas serao utilizadas
-		unsigned char *_values; // vetor contendo os valores salvos em cada posição (possivel usar a funcao position para acessa-lo intuitivamente como matriz)
 		int _D; // dimensoes
 		int _nRules; // numero de regras aplicadas
 		int _tracking; // posicao atual na lista de possibilidades (leia-se profundidade do backtracking)
-		int _lastValue; // ultimi valor testado na atual iteracao
-		int _lastPosition; // ultima posicao a ser alterada na atual iteracao
+		unsigned char _mode; // variavel que determina que heuristicas serao utilizadas
+		unsigned char *_values; // vetor contendo os valores salvos em cada posição (possivel usar a funcao position para acessa-lo intuitivamente como matriz)
 		rule **_rules; // lista de regras do tabuleiro
 		move **_movesStack; // Pilha com movimentos feitos durante o backtracking
 		possibilities **_possibilities; // lista de jogadas possiveis, incluindo historico de jogadas

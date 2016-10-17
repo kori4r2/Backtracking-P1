@@ -44,9 +44,19 @@ bool table::rulesUpdate(int x, int y, int v){ // Checa as regras de acordo com o
 
 // bool checkNewMove(move*)
 // 	vai alterando o valor do movimento para o proximo valido a cada falha, se chegar no final e o valor for 0, retorna false
-bool table::checkNewMove(move *m){
+bool table::checkNewMove(move *m){ // m contem as informacoes do movimento que deu ruim
 
-	return false;
+	do{
+		// reinicia o vetor de possibilidades
+		for(int j = 0; j < _D * _D; j++){
+			_possibilities[_tracking+1][j] = _possibilities[_tracking][j];
+		}
+		// obtem o novo valor
+		m->_value = nextPossibility(_current[position(m->_x, m->_y)], _D, m->_value);
+	// se for um novo valor valido, tenta adicionalo naquela posicao
+	}while(m->_value > 0 && !addNumber(m->_x, m->_y, m->_value) );
+
+	return (m->_value > 0);
 }
 
 // public
@@ -56,8 +66,6 @@ table::table(int D, unsigned char mode){ // construtor
 	_rules = NULL;
 	_tracking = 0;
 	_nRules = 0;
-	_lastValue = -1;
-	_lastPosition = -1;
 	// Cria matriz de possibilidades
 	_possibilities = (possibilities**)malloc(sizeof(possibilities*) * ( _D * _D + 1));
 	for(int i = 0 ; i < (_D * _D); i++){
@@ -115,12 +123,11 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 	int counter = 0;
 	bool backtracking = false;
 	while(_tracking > -1 && _tracking < (_D * _D) && counter < 1000000){
-		bool found = false;
 		int x, y, i;
 		// se sucesso, busca a proxima posicao a ser avaliada
 		if(!backtracking){
 			if(_mode > 0){ // usa MVR
-				unsigned char aux = _queue::dequeue();
+				unsigned char aux = _queue->dequeue();
 				x = aux / _D;
 				y = aux % _D;
 			}else{ // apenas pega a proxima posicao da matriz
@@ -135,38 +142,84 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 			i = nextPossibility(_current[position(x, y)], _D, 0);
 			// se houver valor valido, adiciona o valor no tabuleiro e incrementa o tracking, armazenando o movimento feito na stack
 			if(i){
-				for(int i = 0; i < _D * _D; i++){
-					_possibilities[_tracking+1][i] = _possibilities[_tracking][i];
+				for(int j = 0; j < _D * _D; j++){
+					_possibilities[_tracking+1][j] = _possibilities[_tracking][j];
 				}
 				_current = _possibilities[_tracking + 1];
 				if(!addNumber(x, y, i)){
-				// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
+					move *m = new move(x, y, i);
+					if(!checkNewMove(m)){
+					// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
 					// se durante as repeticoes nao houver mais possibilidades, avisa que deu backtracking e vai pro proximo loop
-				// se conseguir adicionar completamente sem erro no look ahead, atualiza a fila de prioridades
+						backtracking = true;
+						if(_mode > 0)
+							_queue->backtrack();
+					}else{
+						i = m->_value;
+					}
+					delete(m);
 				}
 				if(!backtracking){
-					found = true;
 					_tracking++;
 					if(_mode > 0)
-						_queue::update();
+						_queue->update();
 					_movesStack[_tracking] = new move(x, y, i);
 				}
 			}else{
 			// se nao houver valor valido avisa que deu backtracking e vai pra proxima iteracao do loop
 				if(_mode > 0)
-					_queue::backtrack();
+					_queue->backtrack();
 				backtracking = true;
 			}
 		}else{
 		// se backtracking vai na posicao atual de tracking e pega o proximo valor valido dessa posicao
-			// se houver valor valido, copia as possibilidades de tracking-1 para tracking e adiciona o numero na posicao novamente, avisando sucesso
-				// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
+		x = _movesStack[_tracking]->_x;
+		y = _movesStack[_tracking]->_y;
+		i = _movesStack[_tracking]->_value;
+		i = nextPossibility(_current[position(x, y)], _D, i);
+			// se houver valor valido, copia as possibilidades de tracking para tracking+1 e adiciona o numero na posicao novamente, avisando sucesso
+			if(i){
+				for(int j = 0; j < _D * _D; j++){
+					_possibilities[_tracking+1][j] = _possibilities[_tracking][j];
+				}
+				_current = _possibilities[_tracking + 1];
+				if(!addNumber(x, y, i)){
+					move *m = new move(x, y, i);
+					if(checkNewMove(m)){
+					// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
 					// se durante as repeticoes nao houver mais possibilidades, avisa que deu backtracking e vai pro proximo loop
+						_movesStack[_tracking]->_value = m->_value;
+						backtracking = false;
+					}
+					delete(m);
 				// se conseguir adicionar completamente sem erro no look ahead, atualiza a fila de prioridades
+				}
+			}
+			if(backtracking){
 			// se nao houver valor valido, zera a posicao no tabuleiro, decrementa tracking e avisa que deu backtracking
+				if(_mode > 0)
+					_queue->backtrack();
+				delete(_movesStack[_tracking]);
+				_movesStack[_tracking] = NULL;
+				_values[position(x, y)] = 0;
+				_tracking--;
+				_current = _possibilities[_tracking];
+			}
 		}
 	}
 }
 
 table::~table(){ // destrutor
+	free(_values);
+	for(int i = 0; i < _nRules; i++)
+		delete(_rules[i]);
+	free(_rules);
+	for(int i = 0; i < _D * _D; i++){
+		if(_movesStack[i])
+			delete(_movesStack[i]);
+		free(_possibilities[i]);
+	}
+	free(_possibilities);
+	if(_mode > 0)
+		_queue->~priorityQueue();
 }
