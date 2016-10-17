@@ -24,7 +24,7 @@ int main(int argc, char *argv[]){
 		for(j=0;j<D;j++){
 			for(k=0;k<D;k++){
 				scanf("%c", &aux);
-				T->addValue(j,k,aux); // Adiciona o valor na tabela
+				T->addNumber(j,k,aux); // Adiciona o valor na tabela
 			}
 		}
 
