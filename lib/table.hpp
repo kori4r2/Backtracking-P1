@@ -7,18 +7,15 @@
 using namespace std;
 
 typedef struct move{
-	bool _success;
 	unsigned char _x;
 	unsigned char _y;
 	unsigned char _value;
 	move(unsigned char x, unsigned char y, unsigned char v){
-		_success = true;
 		_x = x;
 		_y = y;
 		_value = v;
 	}
 	move(int x, int y, int v){
-		_success = true;
 		_x = x;
 		_y = y;
 		_value = v;
@@ -44,11 +41,9 @@ class table{
 
 		// Funcoes
 		int position(int, int); // funcao auxiliar para poder alocar a matriz com um unico malloc
-		bool checkMove(move*); // funcao que checa se a jogada e valida
-		void undoMove();
+		bool checkNewMove(move*); // funcao que checa se a jogada e valida
 		void printTable();
 		bool rulesUpdate(int, int, int);
-		move *decideNextMove(); // Funcao que obtem o proximo movimento valido
 	public:
 		table(int, unsigned char); // construtor
 		void addRule(int, int, int, int); // adiciona uma nova regra ao tabuleiro
