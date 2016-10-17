@@ -24,16 +24,16 @@ int main(int argc, char *argv[]){
 		for(j=0;j<D;j++){
 			for(k=0;k<D;k++){
 				scanf("%c", &aux);
-				// T->addValue(aux,j,k); // Adiciona o valor na tabela
+				T->addValue(j,k,aux); // Adiciona o valor na tabela
 			}
 		}
 
 		for(j=0;j<R;j++){
 			scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
-			//T->addRule(x1,y1,x2,y2); // confirmar parametros
+			T->addRule(x1,y1,x2,y2); // confirmar parametros
 		}
 
-		//T->solve();
+		T->solve();
 
 		delete(T);
 	}
