@@ -18,13 +18,13 @@ int main(int argc, char *argv[]){
 
 	for(i=0;i<N;i++){
 
-		table* T = new table(D,HEURISTICA);
 		scanf("%d %d", &D, &R);
+		table *T = new table(D, HEURISTICA, R);
 
 		for(j=0;j<D;j++){
 			for(k=0;k<D;k++){
-				scanf("%c", &aux);
-				T->addValue(j,k,aux); // Adiciona o valor na tabela
+				scanf("%hhu", &aux);
+				T->addNumber(j,k,aux); // Adiciona o valor na tabela
 			}
 		}
 

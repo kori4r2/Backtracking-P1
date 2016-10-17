@@ -16,6 +16,11 @@ int table::position(int x, int y){ // funcao auxiliar para poder alocar a matriz
 }
 
 void table::printTable(){
+	for(int i = 0; i < _D; i++){
+		for(int j = 0; j < _D; j++){
+			printf("%hhu ", _values[position(i, j)]);
+		}
+	}
 }
 
 bool table::rulesUpdate(int x, int y, int v){ // Checa as regras de acordo com os parametros presentes em _current
@@ -60,12 +65,12 @@ bool table::checkNewMove(move *m){ // m contem as informacoes do movimento que d
 }
 
 // public
-table::table(int D, unsigned char mode){ // construtor
+table::table(int D, unsigned char mode, int maxNrules){ // construtor
 	_D = D;
 	_mode = mode;
-	_rules = NULL;
 	_tracking = 0;
 	_nRules = 0;
+	_rules = (rule**)malloc(maxNrules * sizeof(rule*));
 	// Cria matriz de possibilidades
 	_possibilities = (possibilities**)malloc(sizeof(possibilities*) * ( _D * _D + 1));
 	for(int i = 0 ; i < (_D * _D); i++){
@@ -81,9 +86,9 @@ table::table(int D, unsigned char mode){ // construtor
 		_possibilities[0][i] = init;
 	}
 	// Cria a "matriz" de valores
-	_values = (unsigned char*)calloc(_D * _D, sizeof(unsigned char));
+	_values = (unsigned char*)calloc((_D * _D), sizeof(unsigned char));
 	// Cria a stack de movimentos feitos
-	_movesStack = (move**)calloc((_D * _D + 1), sizeof(move*));
+	_movesStack = (move**)calloc(((_D * _D) + 1), sizeof(move*));
 	_movesStack[0] = new move(-1, _D-1, 0);
 	// Atualiza o ponteiro para a situacao atual
 	_current = _possibilities[0];
@@ -97,7 +102,6 @@ table::table(int D, unsigned char mode){ // construtor
 }
 
 void table::addRule(int x1, int y1, int x2, int y2){ // adiciona uma nova regra ao tabuleiro
-	_rules = (rule**)realloc(_rules, sizeof(rule*) * (_nRules+1));
 	_rules[_nRules++] = new rule(x1, y1, x2, y2);
 }
 
@@ -152,8 +156,11 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 					// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
 					// se durante as repeticoes nao houver mais possibilidades, avisa que deu backtracking e vai pro proximo loop
 						backtracking = true;
-						if(_mode > 0)
+						_current = _possibilities[_tracking-1];
+						if(_mode > 0){
 							_queue->backtrack();
+							_queue->update();
+						}
 					}else{
 						i = m->_value;
 					}

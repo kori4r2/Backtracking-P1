@@ -34,10 +34,6 @@ run : build
 .zip :
 	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile
 
-#debug : build
-#	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./program < 1.in > test1.out
-#	diff 1.out test1.out > 1.dif
-#
-#fixdiff :
-#	sed -i -e '$a\' *.out
-#
+debug : all
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(PROJECT) < futoshiki.dat
+

@@ -1,5 +1,6 @@
 #pragma once
 #include <cstdlib>
+#include <cstdio>
 #include "rule.hpp"
 #include "possibilities.hpp"
 #include "pQueue.hpp"
@@ -43,7 +44,7 @@ class table{
 		void printTable();
 		bool rulesUpdate(int, int, int);
 	public:
-		table(int, unsigned char); // construtor
+		table(int, unsigned char, int); // construtor
 		void addRule(int, int, int, int); // adiciona uma nova regra ao tabuleiro
 		bool addNumber(int, int, int); // adiciona um numero em determinada posicao do tabuleiro
 		void solve(); // resolve o tabuleiro usando as heuristicas determinadas na sua criacao e imprime a primeira solucao encontrada na tela
