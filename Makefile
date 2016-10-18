@@ -31,7 +31,7 @@ run : build
 	./$(PROJECT)
 
 .zip : clean
-	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile *.pdf Authors.txt
+	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile *.pdf Authors.txt futoshiki.dat
 
 debug : all
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(PROJECT) < futoshiki.dat 2> debug.txt
