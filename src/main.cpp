@@ -1,7 +1,7 @@
 #include "table.hpp"
 #include <cstdio>
 
-#define HEURISTICA 0 // 0 = apenas backtracking, 1 = utilizando MVR, 2 = utilizando MVR e look-ahead
+#define HEURISTICA 1 // 0 = apenas backtracking, 1 = utilizando MVR, 2 = utilizando MVR e look-ahead
 
 using namespace std;
 

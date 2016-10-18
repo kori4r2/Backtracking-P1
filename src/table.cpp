@@ -109,7 +109,7 @@ table::table(int D, unsigned char mode, int maxNrules){ // construtor
 }
 
 void table::addRule(int x1, int y1, int x2, int y2){ // adiciona uma nova regra ao tabuleiro
-	_rules[_nRules++] = new rule(x1, y1, x2, y2);
+	_rules[_nRules++] = new rule(x1 - 1, y1 - 1, x2 - 1, y2 - 1);
 }
 
 bool table::addNumber(int x, int y, int v){ // adiciona um numero em determinada posicao do tabuleiro
@@ -142,11 +142,11 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 	bool backtracking = false;
 	//fprintf(stderr, "just started: _tracking = %d, _opCounter = %d\n\n", _tracking, _opCounter);
 	while(_tracking >= 0 && _tracking < (_D * _D) && _opCounter < 1000000){
-fprintf(stderr, "_tracking = %d\n", _tracking);
+//fprintf(stderr, "_tracking = %d\n", _tracking);
 		int x, y, i;
 		// se sucesso, busca a proxima posicao a ser avaliada
 		if(!backtracking){
-fprintf(stderr, "trying to go ahead...\n");
+//fprintf(stderr, "trying to go ahead...\n");
 			if(_mode > 0){ // usa MVR
 				unsigned char aux = _queue->dequeue();
 				x = aux / _D;
@@ -166,7 +166,7 @@ fprintf(stderr, "trying to go ahead...\n");
 			}
 			// busca o proximo valor valido nessa posicao encontrada
 			i = nextPossibility(_current[position(x, y)], _D, 0);
-fprintf(stderr, "     current move:(x = %d, y = %d, value = %d);     value tested = %hu\n", x, y, i, _current[position(x, y)]);
+//fprintf(stderr, "     current move:(x = %d, y = %d, value = %d);     value tested = %hu\n", x, y, i, _current[position(x, y)]);
 			// se houver valor valido, adiciona o valor no tabuleiro e incrementa o tracking, armazenando o movimento feito na stack
 			if(i){
 				for(int j = 0; j < _D * _D; j++){
@@ -202,26 +202,28 @@ fprintf(stderr, "     current move:(x = %d, y = %d, value = %d);     value teste
 				backtracking = true;
 			}
 		}else{
-fprintf(stderr, "trying to go back...\n");
+//fprintf(stderr, "trying to go back...\n");
 			// se fazendo backtracking vai na posicao atual de tracking e pega o proximo valor valido dessa posicao
 			x = _movesStack[_tracking]->_x;
 			y = _movesStack[_tracking]->_y;
-fprintf(stderr, "x = %d, y = %d\n", x, y);
 			i = _movesStack[_tracking]->_value;
+			_current = _possibilities[_tracking - 1];
 			i = nextPossibility(_current[position(x, y)], _D, i);
+//fprintf(stderr, "x = %d, y = %d, i = %d     value = %hu\n", x, y, i, _current[position(x, y)]);
 			// se houver valor valido, copia as possibilidades de tracking para tracking+1 e adiciona o numero na posicao novamente, avisando sucesso
 			if(i){
 				backtracking = false;
 				for(int j = 0; j < _D * _D; j++){
-					_possibilities[_tracking+1][j] = _possibilities[_tracking][j];
+					_possibilities[_tracking][j] = _possibilities[_tracking-1][j];
 				}
-				_current = _possibilities[_tracking + 1];
+				_current = _possibilities[_tracking];
 				if(!addNumber(x, y, i)){
 					move *m = new move(x, y, i);
 					if(checkNewMove(m)){
 					// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
 					// se durante as repeticoes nao houver mais possibilidades, avisa que deu backtracking e vai pro proximo loop
-						_movesStack[_tracking]->_value = m->_value;
+//						_movesStack[_tracking]->_value = m->_value;
+						i = m->_value;
 						backtracking = false;
 					}else
 						backtracking = true;
@@ -238,6 +240,8 @@ fprintf(stderr, "x = %d, y = %d\n", x, y);
 				_values[position(x, y)] = 0;
 				_tracking--;
 				_current = _possibilities[_tracking];
+			}else{
+				_movesStack[_tracking]->_value = i;
 			}
 		}
 	}
