@@ -22,17 +22,16 @@ $(BINDIR)/%.o : $(SRCDIR)/%.cpp $(LIBS)
 
 clean :
 	rm -f $(BINDIR)/*.o
-#	rm -f *.dif
-#	rm -f test*.out
 	rm -f $(PROJECT).zip
 	rm -f $(PROJECT)
+	rm -f debug.txt
 	clear
 
 run : build
 	./$(PROJECT)
 
-.zip :
-	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile *.pdf
+.zip : clean
+	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile *.pdf Authors.txt
 
 debug : all
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(PROJECT) < futoshiki.dat 2> debug.txt
