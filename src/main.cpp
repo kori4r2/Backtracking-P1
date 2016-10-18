@@ -34,6 +34,7 @@ int main(int argc, char *argv[]){
 		}
 
 		T->solve();
+		T->printTable();
 
 		delete(T);
 	}
