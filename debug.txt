@@ -1,0 +1,116 @@
+==12582== Memcheck, a memory error detector
+==12582== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==12582== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==12582== Command: ./Backtracking
+==12582== 
+==12582== 
+==12582== Process terminating with default action of signal 2 (SIGINT)
+==12582==    at 0x4008CA: getNumber(unsigned short) (possibilities.cpp:9)
+==12582==    by 0x401EA4: priorityQueue::minHeapify(int) (pQueue.cpp:17)
+==12582==    by 0x40225A: priorityQueue::dequeue() (pQueue.cpp:64)
+==12582==    by 0x40154E: table::solve() (table.cpp:141)
+==12582==    by 0x4024B3: main (main.cpp:37)
+==12582== 
+==12582== HEAP SUMMARY:
+==12582==     in use at exit: 87,654 bytes in 232 blocks
+==12582==   total heap usage: 41,346 allocs, 41,114 frees, 278,260 bytes allocated
+==12582== 
+==12582== 3 bytes in 1 blocks are still reachable in loss record 1 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x401121: table::table(int, unsigned char, int) (table.cpp:96)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 36 bytes in 1 blocks are still reachable in loss record 2 of 17
+==12582==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x4010DE: table::table(int, unsigned char, int) (table.cpp:93)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 36 bytes in 1 blocks are still reachable in loss record 3 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x402147: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:49)
+==12582==    by 0x401195: table::table(int, unsigned char, int) (table.cpp:100)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 36 bytes in 1 blocks are still reachable in loss record 4 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x402162: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:50)
+==12582==    by 0x401195: table::table(int, unsigned char, int) (table.cpp:100)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 40 bytes in 1 blocks are still reachable in loss record 5 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x401179: table::table(int, unsigned char, int) (table.cpp:100)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 42 bytes in 14 blocks are still reachable in loss record 6 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x40181F: table::solve() (table.cpp:186)
+==12582==    by 0x4024B3: main (main.cpp:37)
+==12582== 
+==12582== 72 bytes in 1 blocks are still reachable in loss record 7 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x4023C7: main (main.cpp:22)
+==12582== 
+==12582== 117 bytes in 39 blocks are indirectly lost in loss record 8 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x40181F: table::solve() (table.cpp:186)
+==12582==    by 0x4024B3: main (main.cpp:37)
+==12582== 
+==12582== 120 bytes in 1 blocks are still reachable in loss record 9 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x400FB9: table::table(int, unsigned char, int) (table.cpp:77)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 240 bytes in 15 blocks are still reachable in loss record 10 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x40122F: table::addRule(int, int, int, int) (table.cpp:109)
+==12582==    by 0x40248D: main (main.cpp:33)
+==12582== 
+==12582== 296 bytes in 1 blocks are still reachable in loss record 11 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x400FE6: table::table(int, unsigned char, int) (table.cpp:79)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 296 bytes in 1 blocks are still reachable in loss record 12 of 17
+==12582==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x40110C: table::table(int, unsigned char, int) (table.cpp:95)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 1,560 bytes in 39 blocks are definitely lost in loss record 13 of 17
+==12582==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x401179: table::table(int, unsigned char, int) (table.cpp:100)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 1,816 bytes in 39 blocks are definitely lost in loss record 14 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x401046: table::table(int, unsigned char, int) (table.cpp:81)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 2,664 bytes in 37 blocks are still reachable in loss record 15 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x401046: table::table(int, unsigned char, int) (table.cpp:81)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 7,693 (7,576 direct, 117 indirect) bytes in 39 blocks are definitely lost in loss record 16 of 17
+==12582==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x40110C: table::table(int, unsigned char, int) (table.cpp:95)
+==12582==    by 0x4023E1: main (main.cpp:22)
+==12582== 
+==12582== 72,704 bytes in 1 blocks are still reachable in loss record 17 of 17
+==12582==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==12582==    by 0x4EC0A1F: pool (eh_alloc.cc:123)
+==12582==    by 0x4EC0A1F: __static_initialization_and_destruction_0 (eh_alloc.cc:250)
+==12582==    by 0x4EC0A1F: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:326)
+==12582==    by 0x400F4F9: call_init.part.0 (in /usr/lib/ld-2.24.so)
+==12582==    by 0x400F60A: _dl_init (in /usr/lib/ld-2.24.so)
+==12582==    by 0x4000DA9: ??? (in /usr/lib/ld-2.24.so)
+==12582== 
+==12582== LEAK SUMMARY:
+==12582==    definitely lost: 10,952 bytes in 117 blocks
+==12582==    indirectly lost: 117 bytes in 39 blocks
+==12582==      possibly lost: 0 bytes in 0 blocks
+==12582==    still reachable: 76,585 bytes in 76 blocks
+==12582==         suppressed: 0 bytes in 0 blocks
+==12582== 
+==12582== For counts of detected and suppressed errors, rerun with: -v
+==12582== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
