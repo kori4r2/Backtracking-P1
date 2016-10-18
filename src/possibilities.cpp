@@ -22,10 +22,10 @@ int nextPossibility(const possibilities p, const int D, const int current){
 	// A variavel test armazena a possibilidade sendo testada
 	possibilities test = 1 << current;
 	// Percorre todas as demais possibilidades do vetor
-	for(int i = current+1; i < D; i++){
+	for(int i = current+1; i <= D; i++){
 		// Caso encontre uma possibilidade valida, ela sera o retorno
 		if((test & p) != IMPOSSIBLE)
-			return (i + 1);
+			return i;
 		test = test << 1;
 	}
 	// Se nao houver mais valores possiveis, retorna 0
