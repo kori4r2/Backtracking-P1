@@ -32,7 +32,7 @@ run : build
 	./$(PROJECT)
 
 .zip :
-	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile
+	zip $(PROJECT).zip $(SRCS) $(LIBS) Makefile *.pdf
 
 debug : all
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(PROJECT) < futoshiki.dat 2> debug.txt

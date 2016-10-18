@@ -13,7 +13,6 @@
 // private
 int table::position(int x, int y){ // funcao auxiliar para poder alocar a matriz com um unico malloc
 	int result = ((x * _D) + y);
-//	fprintf(stderr, "result = %d, x = %d, y = %d\n", result, x, y);
 	return result;
 }
 
@@ -22,9 +21,7 @@ void table::printTable(){
 	for(int i = 0; i < _D; i++){
 		for(int j = 0; j < _D; j++){
 			printf("%hhu ", _values[position(i, j)]);
-//			fprintf(stderr, "%hhu ", _values[position(i, j)]);
 		}
-//		fprintf(stderr, "\n");
 		printf("\n");
 	}
 	printf("--------------------------------\n");
@@ -35,14 +32,14 @@ bool table::rulesUpdate(int x, int y, int v){ // Checa as regras de acordo com o
 		int result = _rules[i]->checkRule(x, y);
 		if(result == 1){
 			// Remove todas as possibilidades iguais ou menores do seu vizinho que deve ser maior
-			for(int j = v; j >= 0; j--){
+			for(int j = v; j > 0; j--){
 				_current[position(_rules[i]->xg, _rules[i]->yg)] = removePossibility(_current[position(_rules[i]->xg, _rules[i]->yg)], j);
 				if(_mode > 1 && _current[position(_rules[i]->xg, _rules[i]->yg)] == IMPOSSIBLE)
 					return false;
 			}
 		}else if(result == 2){
 			// Remove todas as possibilidades iguais ou maiores do seu vizinho que deve ser menor
-			for(int j = v; j < _D; j++){
+			for(int j = v; j <= _D; j++){
 				_current[position(_rules[i]->xl, _rules[i]->yl)] = removePossibility(_current[position(_rules[i]->xl, _rules[i]->yl)], j);
 				if(_mode > 1 && _current[position(_rules[i]->xl, _rules[i]->yl)] == IMPOSSIBLE)
 					return false;
@@ -89,7 +86,6 @@ table::table(int D, unsigned char mode, int maxNrules){ // construtor
 		init = init << 1;
 		init++;
 	}
-	//fprintf(stderr, "init = %hu\n", init);
 	for(int i = 0 ; i < (_D * _D); i++){
 		_possibilities[0][i] = init;
 	}
@@ -100,7 +96,6 @@ table::table(int D, unsigned char mode, int maxNrules){ // construtor
 	_movesStack[0] = new move(-1, _D-1, 0);
 	// Atualiza o ponteiro para a situacao atual
 	_current = _possibilities[0];
-	//fprintf(stderr, "\t\t%hu == %hu\n", _possibilities[0][0], _current[0]);
 	if(_mode > 0){
 		_queue = new priorityQueue(_D, &_current);
 		for(int i = 0; i < _D * _D; i++){
@@ -118,17 +113,14 @@ bool table::addNumber(int x, int y, int v){ // adiciona um numero em determinada
 	if(v > 0){
 		_values[position(x, y)] = v;
 		_current[position(x, y)] = addPossibility(IMPOSSIBLE, v);
-//fprintf(stderr, "after adding to %d,%d, v = %hu\n", x, y, _current[position(x, y)]);
 		for(int i = 0; i < _D; i++){
 			if(i != x){
 				_current[position(i, y)] = removePossibility(_current[position(i, y)], v);
-//fprintf(stderr, "after removing from %d,%d, v = %hu\n", i, y, _current[position(i, y)]);
 				if(_mode > 1 && _current[position(i, y)] == IMPOSSIBLE)
 					return false;
 			}
 			if(i != y){
 				_current[position(x, i)] = removePossibility(_current[position(x, i)], v);
-//fprintf(stderr, "after removing from %d,%d, v = %hu\n", x, i, _current[position(x, i)]);
 				if(_mode > 1 && _current[position(x, i)] == IMPOSSIBLE)
 					return false;
 			}
@@ -141,13 +133,10 @@ bool table::addNumber(int x, int y, int v){ // adiciona um numero em determinada
 void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas na sua criacao e imprime a primeira solucao encontrada na tela
 	_opCounter = 0;
 	bool backtracking = false;
-	//fprintf(stderr, "just started: _tracking = %d, _opCounter = %d\n\n", _tracking, _opCounter);
 	while(_tracking >= 0 && _tracking < (_D * _D) && _opCounter < 1000000){
-//fprintf(stderr, "_tracking = %d\n", _tracking);
 		int x, y, i;
 		// se sucesso, busca a proxima posicao a ser avaliada
 		if(!backtracking){
-//fprintf(stderr, "trying to go ahead...\n");
 			if(_mode > 0){ // usa MVR
 				unsigned char aux = _queue->dequeue();
 				x = aux / _D;
@@ -167,7 +156,6 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 			}
 			// busca o proximo valor valido nessa posicao encontrada
 			i = nextPossibility(_current[position(x, y)], _D, 0);
-//fprintf(stderr, "     current move:(x = %d, y = %d, value = %d);     value tested = %hu\n", x, y, i, _current[position(x, y)]);
 			// se houver valor valido, adiciona o valor no tabuleiro e incrementa o tracking, armazenando o movimento feito na stack
 			if(i){
 				for(int j = 0; j < _D * _D; j++){
@@ -204,14 +192,12 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 				backtracking = true;
 			}
 		}else{
-//fprintf(stderr, "trying to go back...\n");
 			// se fazendo backtracking vai na posicao atual de tracking e pega o proximo valor valido dessa posicao
 			x = _movesStack[_tracking]->_x;
 			y = _movesStack[_tracking]->_y;
 			i = _movesStack[_tracking]->_value;
 			_current = _possibilities[_tracking - 1];
 			i = nextPossibility(_current[position(x, y)], _D, i);
-//fprintf(stderr, "x = %d, y = %d, i = %d     value = %hu\n", x, y, i, _current[position(x, y)]);
 			// se houver valor valido, copia as possibilidades de tracking para tracking+1 e adiciona o numero na posicao novamente, avisando sucesso
 			if(i){
 				backtracking = false;
@@ -224,7 +210,6 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 					if(checkNewMove(m)){
 					// se checando o look ahead encontrar erro, cancela e busca o proximo valor valido, tentando adicionar novamente ate encontrar um
 					// se durante as repeticoes nao houver mais possibilidades, avisa que deu backtracking e vai pro proximo loop
-//						_movesStack[_tracking]->_value = m->_value;
 						i = m->_value;
 						backtracking = false;
 					}else
@@ -248,11 +233,6 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 			}
 		}
 	}
-/*	if(_tracking < 0)
-		fprintf(stderr, "Nenhuma solucao foi encontrada, atribuicoes = %d\n", _opCounter);
-	else
-		fprintf(stderr, "we did it!, atribuicoes = %d\n", _opCounter);
-	printTable(); */
 	if(_tracking >= (_D * _D))
 		printTable();
 	else if(_tracking < 0)

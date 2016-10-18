@@ -74,7 +74,6 @@ void priorityQueue::update(){ // atualiza a fila de acordo com os valores atuais
 void priorityQueue::backtrack(){ // reinsere o ultimo elemento removido na fila e o move a sua posicao correta
 	_vector[_size++] = _removed[_stackSize - 1];
 	_stackSize--;
-//	update();
 	moveUp(_size-1); // Nao leva em consideracao que _ref foi alterado, sempre que
 		 	 // _ref for alterado, deve-se chamar update() antes de alterar a queue
 }
