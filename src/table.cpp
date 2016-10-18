@@ -18,14 +18,16 @@ int table::position(int x, int y){ // funcao auxiliar para poder alocar a matriz
 }
 
 void table::printTable(){
+	printf("--------------------------------\n");
 	for(int i = 0; i < _D; i++){
 		for(int j = 0; j < _D; j++){
-//			printf("%hhu ", _values[position(i, j)]);
-			fprintf(stderr, "%hhu ", _values[position(i, j)]);
+			printf("%hhu ", _values[position(i, j)]);
+//			fprintf(stderr, "%hhu ", _values[position(i, j)]);
 		}
-		fprintf(stderr, "\n");
-//		printf("\n");
+//		fprintf(stderr, "\n");
+		printf("\n");
 	}
+	printf("--------------------------------\n");
 }
 
 bool table::rulesUpdate(int x, int y, int v){ // Checa as regras de acordo com os parametros presentes em _current
@@ -114,7 +116,6 @@ void table::addRule(int x1, int y1, int x2, int y2){ // adiciona uma nova regra 
 
 bool table::addNumber(int x, int y, int v){ // adiciona um numero em determinada posicao do tabuleiro
 	if(v > 0){
-		_opCounter++;
 		_values[position(x, y)] = v;
 		_current[position(x, y)] = addPossibility(IMPOSSIBLE, v);
 //fprintf(stderr, "after adding to %d,%d, v = %hu\n", x, y, _current[position(x, y)]);
@@ -138,7 +139,7 @@ bool table::addNumber(int x, int y, int v){ // adiciona um numero em determinada
 }
 
 void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas na sua criacao e imprime a primeira solucao encontrada na tela
-	int _opCounter = 0;
+	_opCounter = 0;
 	bool backtracking = false;
 	//fprintf(stderr, "just started: _tracking = %d, _opCounter = %d\n\n", _tracking, _opCounter);
 	while(_tracking >= 0 && _tracking < (_D * _D) && _opCounter < 1000000){
@@ -190,6 +191,7 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 					delete(m);
 				}
 				if(!backtracking){
+					_opCounter++;
 					_tracking++;
 					if(_mode > 0)
 						_queue->update();
@@ -241,21 +243,23 @@ void table::solve(){ // resolve o tabuleiro usando as heuristicas determinadas n
 				_tracking--;
 				_current = _possibilities[_tracking];
 			}else{
+				_opCounter++;
 				_movesStack[_tracking]->_value = i;
 			}
 		}
 	}
-	if(_tracking < 0)
+/*	if(_tracking < 0)
 		fprintf(stderr, "Nenhuma solucao foi encontrada, atribuicoes = %d\n", _opCounter);
 	else
 		fprintf(stderr, "we did it!, atribuicoes = %d\n", _opCounter);
-	printTable();
-/*	if(_tracking >= (_D * _D))
+	printTable(); */
+	if(_tracking >= (_D * _D))
 		printTable();
 	else if(_tracking < 0)
 		printf("Nenhuma solucao foi encontrada\n");
 	else
-		printf("Numero de atribuicoes excede limite maximo"); */
+		printf("Numero de atribuicoes excede limite maximo");
+	printf("Foram feitas %d atribuicoes\n", _opCounter);
 }
 
 table::~table(){ // destrutor

@@ -1,602 +1,118 @@
-==18853== Memcheck, a memory error detector
-==18853== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==18853== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==18853== Command: ./Backtracking
-==18853== 
-we did it!, atribuicoes = 0
-1 3 4 2 
-4 2 3 1 
-2 4 1 3 
-3 1 2 4 
-we did it!, atribuicoes = 0
-1 2 3 4 
-3 4 1 2 
-2 3 4 1 
-4 1 2 3 
-we did it!, atribuicoes = 0
-3 1 2 4 
-4 3 1 2 
-1 2 4 3 
-2 4 3 1 
-we did it!, atribuicoes = 0
-2 3 4 1 
-1 4 3 2 
-3 1 2 4 
-4 2 1 3 
-we did it!, atribuicoes = 0
-1 2 3 4 
-4 3 2 1 
-3 1 4 2 
-2 4 1 3 
-we did it!, atribuicoes = 0
-2 1 3 4 
-3 4 2 1 
-4 3 1 2 
-1 2 4 3 
-we did it!, atribuicoes = 0
-3 2 4 1 
-2 4 1 3 
-4 1 3 2 
-1 3 2 4 
-we did it!, atribuicoes = 0
-4 2 3 1 
-2 4 1 3 
-3 1 2 4 
-1 3 4 2 
-we did it!, atribuicoes = 0
-2 1 4 3 
-4 2 3 1 
-3 4 1 2 
-1 3 2 4 
-we did it!, atribuicoes = 0
-2 4 1 3 
-1 3 4 2 
-3 1 2 4 
-4 2 3 1 
-we did it!, atribuicoes = 0
-4 1 3 2 
-3 2 1 4 
-2 3 4 1 
-1 4 2 3 
-we did it!, atribuicoes = 0
-3 4 2 1 
-4 3 1 2 
-1 2 3 4 
-2 1 4 3 
-we did it!, atribuicoes = 0
-1 4 2 3 
-4 1 3 2 
-3 2 1 4 
-2 3 4 1 
-we did it!, atribuicoes = 0
-3 1 4 2 
-4 2 3 1 
-2 3 1 4 
-1 4 2 3 
-we did it!, atribuicoes = 0
-4 2 3 1 
-1 3 2 4 
-2 1 4 3 
-3 4 1 2 
-we did it!, atribuicoes = 0
-1 4 3 2 
-4 1 2 3 
-3 2 1 4 
-2 3 4 1 
-we did it!, atribuicoes = 0
-1 3 5 4 2 
-3 2 1 5 4 
-4 1 3 2 5 
-2 5 4 3 1 
-5 4 2 1 3 
-we did it!, atribuicoes = 0
-2 1 4 3 5 
-4 3 5 2 1 
-3 2 1 5 4 
-5 4 3 1 2 
-1 5 2 4 3 
-we did it!, atribuicoes = 0
-3 5 4 2 1 
-4 3 2 1 5 
-1 2 5 3 4 
-5 1 3 4 2 
-2 4 1 5 3 
-we did it!, atribuicoes = 0
-3 1 5 2 4 
-5 2 1 4 3 
-4 5 2 3 1 
-2 3 4 1 5 
-1 4 3 5 2 
-we did it!, atribuicoes = 0
-1 2 3 4 5 
-5 3 4 1 2 
-3 4 2 5 1 
-4 5 1 2 3 
-2 1 5 3 4 
-we did it!, atribuicoes = 0
-5 3 4 1 2 
-2 5 1 4 3 
-1 2 5 3 4 
-4 1 3 2 5 
-3 4 2 5 1 
-we did it!, atribuicoes = 0
-1 4 2 5 3 
-2 1 3 4 5 
-5 3 1 2 4 
-4 2 5 3 1 
-3 5 4 1 2 
-we did it!, atribuicoes = 0
-3 2 4 1 5 
-4 5 2 3 1 
-2 1 3 5 4 
-1 3 5 4 2 
-5 4 1 2 3 
-we did it!, atribuicoes = 0
-4 2 1 3 5 
-5 1 4 2 3 
-2 4 3 5 1 
-1 3 5 4 2 
-3 5 2 1 4 
-we did it!, atribuicoes = 0
-3 4 5 1 2 
-4 3 2 5 1 
-2 5 1 3 4 
-5 1 4 2 3 
-1 2 3 4 5 
-we did it!, atribuicoes = 0
-2 3 1 5 4 
-4 5 3 1 2 
-3 1 4 2 5 
-5 4 2 3 1 
-1 2 5 4 3 
-we did it!, atribuicoes = 0
-3 2 4 1 5 
-1 5 2 4 3 
-5 4 3 2 1 
-2 1 5 3 4 
-4 3 1 5 2 
-we did it!, atribuicoes = 0
-3 1 4 5 2 
-5 2 3 1 4 
-1 5 2 4 3 
-2 4 5 3 1 
-4 3 1 2 5 
-we did it!, atribuicoes = 0
-1 3 5 2 4 
-5 1 2 4 3 
-2 4 1 3 5 
-3 2 4 5 1 
-4 5 3 1 2 
-we did it!, atribuicoes = 0
-1 5 3 4 2 
-3 4 5 2 1 
-2 1 4 5 3 
-4 2 1 3 5 
-5 3 2 1 4 
-we did it!, atribuicoes = 0
-1 2 3 4 5 
-5 4 1 3 2 
-2 5 4 1 3 
-3 1 5 2 4 
-4 3 2 5 1 
-we did it!, atribuicoes = 0
-2 3 1 4 5 6 
-6 2 5 3 1 4 
-3 4 6 5 2 1 
-5 6 3 1 4 2 
-4 1 2 6 3 5 
-1 5 4 2 6 3 
-we did it!, atribuicoes = 0
-2 3 4 6 1 5 
-1 4 5 3 6 2 
-3 1 2 4 5 6 
-4 5 6 1 2 3 
-6 2 3 5 4 1 
-5 6 1 2 3 4 
-we did it!, atribuicoes = 0
-4 3 5 2 6 1 
-5 2 3 6 1 4 
-2 4 6 1 5 3 
-1 5 4 3 2 6 
-6 1 2 4 3 5 
-3 6 1 5 4 2 
-we did it!, atribuicoes = 0
-4 3 1 6 5 2 
-2 1 6 5 3 4 
-3 4 2 1 6 5 
-1 5 3 2 4 6 
-5 6 4 3 2 1 
-6 2 5 4 1 3 
-we did it!, atribuicoes = 0
-3 2 5 6 1 4 
-2 1 3 4 6 5 
-1 6 4 5 3 2 
-4 3 2 1 5 6 
-5 4 6 3 2 1 
-6 5 1 2 4 3 
-we did it!, atribuicoes = 0
-4 6 2 1 5 3 
-5 4 1 2 3 6 
-3 2 5 4 6 1 
-1 5 3 6 4 2 
-2 3 6 5 1 4 
-6 1 4 3 2 5 
-we did it!, atribuicoes = 0
-5 1 6 3 2 4 
-6 4 1 2 5 3 
-4 2 5 1 3 6 
-2 5 3 4 6 1 
-3 6 4 5 1 2 
-1 3 2 6 4 5 
-we did it!, atribuicoes = 0
-1 2 6 3 5 4 
-4 6 3 2 1 5 
-2 3 1 5 4 6 
-6 4 5 1 3 2 
-5 1 4 6 2 3 
-3 5 2 4 6 1 
-we did it!, atribuicoes = 0
-5 4 3 6 2 1 
-4 5 1 2 3 6 
-1 2 4 5 6 3 
-2 6 5 3 1 4 
-3 1 6 4 5 2 
-6 3 2 1 4 5 
-we did it!, atribuicoes = 0
-1 4 6 2 3 5 
-4 2 5 6 1 3 
-5 6 1 3 2 4 
-3 5 2 1 4 6 
-6 1 3 4 5 2 
-2 3 4 5 6 1 
-we did it!, atribuicoes = 0
-3 1 6 4 5 2 
-2 6 5 1 3 4 
-5 4 3 6 2 1 
-6 5 1 2 4 3 
-4 3 2 5 1 6 
-1 2 4 3 6 5 
-we did it!, atribuicoes = 0
-5 4 6 2 3 1 
-4 5 3 6 1 2 
-6 2 1 3 5 4 
-2 1 5 4 6 3 
-3 6 4 1 2 5 
-1 3 2 5 4 6 
-we did it!, atribuicoes = 0
-4 2 1 5 6 3 
-3 4 5 1 2 6 
-1 6 3 2 5 4 
-2 1 6 4 3 5 
-5 3 4 6 1 2 
-6 5 2 3 4 1 
-we did it!, atribuicoes = 0
-6 1 3 2 4 5 
-1 4 5 3 6 2 
-5 6 2 4 3 1 
-2 3 1 6 5 4 
-4 5 6 1 2 3 
-3 2 4 5 1 6 
-we did it!, atribuicoes = 0
-4 5 1 2 3 6 
-5 2 4 3 6 1 
-6 1 5 4 2 3 
-1 3 2 6 5 4 
-2 6 3 1 4 5 
-3 4 6 5 1 2 
-we did it!, atribuicoes = 0
-2 3 5 4 6 1 
-3 4 1 2 5 6 
-4 6 2 3 1 5 
-6 5 4 1 2 3 
-5 1 3 6 4 2 
-1 2 6 5 3 4 
-we did it!, atribuicoes = 0
-1 5 6 4 2 3 7 
-7 6 4 3 5 1 2 
-2 4 3 7 1 6 5 
-6 7 2 1 3 5 4 
-4 3 5 2 6 7 1 
-3 2 1 5 7 4 6 
-5 1 7 6 4 2 3 
-we did it!, atribuicoes = 0
-3 1 5 7 4 6 2 
-1 5 4 6 3 2 7 
-7 3 2 5 6 1 4 
-2 6 1 4 5 7 3 
-6 4 7 3 2 5 1 
-5 2 3 1 7 4 6 
-4 7 6 2 1 3 5 
-we did it!, atribuicoes = 0
-2 5 3 1 4 7 6 
-1 2 5 4 6 3 7 
-7 1 6 3 5 4 2 
-4 3 1 7 2 6 5 
-5 7 4 6 3 2 1 
-6 4 2 5 7 1 3 
-3 6 7 2 1 5 4 
-we did it!, atribuicoes = 0
-3 1 6 2 7 5 4 
-2 6 4 3 5 7 1 
-5 2 7 1 3 4 6 
-6 5 1 4 2 3 7 
-7 4 3 5 1 6 2 
-1 7 5 6 4 2 3 
-4 3 2 7 6 1 5 
-we did it!, atribuicoes = 0
-3 2 5 7 1 6 4 
-5 6 7 4 2 3 1 
-2 3 1 6 4 5 7 
-1 4 6 5 7 2 3 
-6 7 4 3 5 1 2 
-7 1 3 2 6 4 5 
-4 5 2 1 3 7 6 
-we did it!, atribuicoes = 0
-4 1 2 5 7 6 3 
-2 7 1 4 5 3 6 
-6 5 7 2 3 1 4 
-1 4 5 3 6 7 2 
-3 2 4 6 1 5 7 
-5 6 3 7 4 2 1 
-7 3 6 1 2 4 5 
-we did it!, atribuicoes = 0
-4 3 6 7 1 2 5 
-7 6 1 5 4 3 2 
-6 2 5 4 3 7 1 
-2 7 4 6 5 1 3 
-1 4 3 2 6 5 7 
-5 1 7 3 2 4 6 
-3 5 2 1 7 6 4 
-we did it!, atribuicoes = 0
-3 1 5 2 6 4 7 
-2 3 6 5 7 1 4 
-1 4 2 6 3 7 5 
-6 5 7 1 4 3 2 
-4 7 1 3 2 5 6 
-5 6 4 7 1 2 3 
-7 2 3 4 5 6 1 
-we did it!, atribuicoes = 0
-6 4 7 1 2 3 5 
-3 1 4 5 6 2 7 
-5 2 6 3 4 7 1 
-4 3 5 2 7 1 6 
-7 5 3 4 1 6 2 
-1 7 2 6 3 5 4 
-2 6 1 7 5 4 3 
-we did it!, atribuicoes = 0
-2 7 6 5 1 3 4 
-6 5 7 2 3 4 1 
-1 6 5 7 4 2 3 
-4 3 2 1 7 5 6 
-3 4 1 6 2 7 5 
-7 1 3 4 5 6 2 
-5 2 4 3 6 1 7 
-we did it!, atribuicoes = 0
-3 6 1 7 2 4 5 
-2 1 5 3 4 7 6 
-7 4 3 2 5 6 1 
-6 2 7 5 1 3 4 
-4 5 2 6 7 1 3 
-5 3 4 1 6 2 7 
-1 7 6 4 3 5 2 
-we did it!, atribuicoes = 0
-1 2 3 6 4 5 7 
-2 4 6 7 5 1 3 
-5 7 1 4 6 3 2 
-4 6 2 5 3 7 1 
-6 5 7 3 1 2 4 
-3 1 4 2 7 6 5 
-7 3 5 1 2 4 6 
-we did it!, atribuicoes = 0
-7 2 5 6 1 3 4 
-1 4 2 7 6 5 3 
-3 7 4 5 2 1 6 
-4 1 3 2 7 6 5 
-6 3 7 1 5 4 2 
-5 6 1 3 4 2 7 
-2 5 6 4 3 7 1 
-we did it!, atribuicoes = 0
-2 3 6 4 5 1 7 
-1 4 2 3 7 5 6 
-4 5 1 6 2 7 3 
-7 6 3 5 4 2 1 
-6 2 4 7 1 3 5 
-5 1 7 2 3 6 4 
-3 7 5 1 6 4 2 
-we did it!, atribuicoes = 0
-7 3 2 4 5 6 1 
-6 4 5 1 2 7 3 
-4 5 6 3 7 1 2 
-5 1 3 2 6 4 7 
-1 2 7 6 3 5 4 
-2 7 4 5 1 3 6 
-3 6 1 7 4 2 5 
-we did it!, atribuicoes = 0
-7 3 5 2 6 4 1 
-4 5 6 1 3 7 2 
-3 2 4 7 5 1 6 
-2 1 7 6 4 3 5 
-5 7 1 3 2 6 4 
-1 6 2 4 7 5 3 
-6 4 3 5 1 2 7 
-we did it!, atribuicoes = 0
-7 8 1 4 5 3 6 2 
-6 2 5 7 3 4 1 8 
-3 4 2 8 1 5 7 6 
-5 1 8 2 6 7 4 3 
-2 3 4 6 7 1 8 5 
-1 7 6 3 2 8 5 4 
-4 6 7 5 8 2 3 1 
-8 5 3 1 4 6 2 7 
-we did it!, atribuicoes = 0
-4 2 5 1 3 7 8 6 
-8 5 2 6 7 1 3 4 
-6 3 4 5 2 8 1 7 
-7 4 1 8 5 6 2 3 
-3 1 7 2 4 5 6 8 
-2 7 6 3 8 4 5 1 
-1 8 3 4 6 2 7 5 
-5 6 8 7 1 3 4 2 
-we did it!, atribuicoes = 0
-7 8 4 1 3 2 6 5 
-2 5 3 7 6 1 8 4 
-8 6 1 2 4 7 5 3 
-3 7 6 4 2 5 1 8 
-4 3 2 5 1 8 7 6 
-5 1 7 6 8 3 4 2 
-6 2 5 8 7 4 3 1 
-1 4 8 3 5 6 2 7 
-we did it!, atribuicoes = 0
-1 3 7 5 8 4 2 6 
-2 1 4 8 5 6 3 7 
-5 4 2 3 6 7 8 1 
-3 8 1 6 2 5 7 4 
-4 7 3 2 1 8 6 5 
-6 2 5 1 7 3 4 8 
-8 5 6 7 4 2 1 3 
-7 6 8 4 3 1 5 2 
-we did it!, atribuicoes = 0
-3 4 1 5 8 2 7 6 
-2 1 6 7 3 4 8 5 
-5 8 2 1 7 6 3 4 
-6 2 3 4 5 7 1 8 
-4 6 5 8 1 3 2 7 
-7 3 4 6 2 8 5 1 
-8 5 7 2 4 1 6 3 
-1 7 8 3 6 5 4 2 
-we did it!, atribuicoes = 0
-3 5 6 8 1 4 2 7 
-7 6 5 1 2 8 3 4 
-2 1 3 6 4 7 8 5 
-1 2 4 7 8 6 5 3 
-8 4 2 5 6 3 7 1 
-6 8 7 3 5 1 4 2 
-5 7 8 4 3 2 1 6 
-4 3 1 2 7 5 6 8 
-we did it!, atribuicoes = 0
-6 5 3 7 8 4 2 1 
-3 6 7 2 4 8 1 5 
-8 7 6 3 2 1 5 4 
-4 2 1 8 5 6 7 3 
-2 1 5 4 3 7 6 8 
-5 4 2 1 6 3 8 7 
-7 3 8 5 1 2 4 6 
-1 8 4 6 7 5 3 2 
-we did it!, atribuicoes = 0
-6 1 7 8 2 4 3 5 
-1 6 4 3 5 8 7 2 
-8 3 2 5 6 1 4 7 
-4 7 5 6 3 2 1 8 
-5 4 6 2 7 3 8 1 
-2 8 3 7 1 5 6 4 
-3 2 1 4 8 7 5 6 
-7 5 8 1 4 6 2 3 
-==18853== 
-==18853== Process terminating with default action of signal 2 (SIGINT)
-==18853==    at 0x402271: priorityQueue::update() (pQueue.cpp:69)
-==18853==    by 0x4017F9: table::solve() (table.cpp:195)
-==18853==    by 0x40245F: main (main.cpp:36)
-==18853== 
-==18853== HEAP SUMMARY:
-==18853==     in use at exit: 112,169 bytes in 435 blocks
-==18853==   total heap usage: 104,810 allocs, 104,375 frees, 685,679 bytes allocated
-==18853== 
-==18853== 3 bytes in 1 blocks are still reachable in loss record 1 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x40110F: table::table(int, unsigned char, int) (table.cpp:98)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 40 bytes in 1 blocks are still reachable in loss record 2 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401167: table::table(int, unsigned char, int) (table.cpp:103)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 64 bytes in 1 blocks are still reachable in loss record 3 of 17
-==18853==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x4010CC: table::table(int, unsigned char, int) (table.cpp:95)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 64 bytes in 1 blocks are still reachable in loss record 4 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x402107: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:49)
-==18853==    by 0x401183: table::table(int, unsigned char, int) (table.cpp:103)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 64 bytes in 1 blocks are still reachable in loss record 5 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x402122: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:50)
-==18853==    by 0x401183: table::table(int, unsigned char, int) (table.cpp:103)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 72 bytes in 1 blocks are still reachable in loss record 6 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x402387: main (main.cpp:22)
-==18853== 
-==18853== 126 bytes in 42 blocks are still reachable in loss record 7 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401803: table::solve() (table.cpp:196)
-==18853==    by 0x40245F: main (main.cpp:36)
-==18853== 
-==18853== 216 bytes in 72 blocks are indirectly lost in loss record 8 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401803: table::solve() (table.cpp:196)
-==18853==    by 0x40245F: main (main.cpp:36)
-==18853== 
-==18853== 240 bytes in 1 blocks are still reachable in loss record 9 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x400FA7: table::table(int, unsigned char, int) (table.cpp:78)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 480 bytes in 30 blocks are still reachable in loss record 10 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x40121D: table::addRule(int, int, int, int) (table.cpp:112)
-==18853==    by 0x40244D: main (main.cpp:33)
-==18853== 
-==18853== 520 bytes in 1 blocks are still reachable in loss record 11 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x400FD4: table::table(int, unsigned char, int) (table.cpp:80)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 520 bytes in 1 blocks are still reachable in loss record 12 of 17
-==18853==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x4010FA: table::table(int, unsigned char, int) (table.cpp:97)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 2,880 bytes in 72 blocks are definitely lost in loss record 13 of 17
-==18853==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401167: table::table(int, unsigned char, int) (table.cpp:103)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 5,056 bytes in 72 blocks are definitely lost in loss record 14 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401034: table::table(int, unsigned char, int) (table.cpp:82)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 8,320 bytes in 65 blocks are still reachable in loss record 15 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x401034: table::table(int, unsigned char, int) (table.cpp:82)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 21,016 (20,800 direct, 216 indirect) bytes in 72 blocks are definitely lost in loss record 16 of 17
-==18853==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x4010FA: table::table(int, unsigned char, int) (table.cpp:97)
-==18853==    by 0x4023A1: main (main.cpp:22)
-==18853== 
-==18853== 72,704 bytes in 1 blocks are still reachable in loss record 17 of 17
-==18853==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==18853==    by 0x4EC0A1F: pool (eh_alloc.cc:123)
-==18853==    by 0x4EC0A1F: __static_initialization_and_destruction_0 (eh_alloc.cc:250)
-==18853==    by 0x4EC0A1F: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:326)
-==18853==    by 0x400F4F9: call_init.part.0 (in /usr/lib/ld-2.24.so)
-==18853==    by 0x400F60A: _dl_init (in /usr/lib/ld-2.24.so)
-==18853==    by 0x4000DA9: ??? (in /usr/lib/ld-2.24.so)
-==18853== 
-==18853== LEAK SUMMARY:
-==18853==    definitely lost: 28,736 bytes in 216 blocks
-==18853==    indirectly lost: 216 bytes in 72 blocks
-==18853==      possibly lost: 0 bytes in 0 blocks
-==18853==    still reachable: 83,217 bytes in 147 blocks
-==18853==         suppressed: 0 bytes in 0 blocks
-==18853== 
-==18853== For counts of detected and suppressed errors, rerun with: -v
-==18853== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==20083== Memcheck, a memory error detector
+==20083== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==20083== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20083== Command: ./Backtracking
+==20083== 
+==20083== 
+==20083== Process terminating with default action of signal 2 (SIGINT)
+==20083==    at 0x4008CA: getNumber(unsigned short) (possibilities.cpp:9)
+==20083==    by 0x401EA4: priorityQueue::minHeapify(int) (pQueue.cpp:17)
+==20083==    by 0x4022B0: priorityQueue::update() (pQueue.cpp:70)
+==20083==    by 0x400DF1: table::rulesUpdate(int, int, int) (table.cpp:53)
+==20083==    by 0x4014B3: table::addNumber(int, int, int) (table.cpp:136)
+==20083==    by 0x401703: table::solve() (table.cpp:177)
+==20083==    by 0x40249F: main (main.cpp:36)
+==20083== 
+==20083== HEAP SUMMARY:
+==20083==     in use at exit: 128,456 bytes in 533 blocks
+==20083==   total heap usage: 708,011 allocs, 707,478 frees, 2,674,992 bytes allocated
+==20083== 
+==20083== 3 bytes in 1 blocks are still reachable in loss record 1 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x401121: table::table(int, unsigned char, int) (table.cpp:100)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 40 bytes in 1 blocks are still reachable in loss record 2 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x401179: table::table(int, unsigned char, int) (table.cpp:105)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 72 bytes in 1 blocks are still reachable in loss record 3 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x4023C7: main (main.cpp:22)
+==20083== 
+==20083== 81 bytes in 1 blocks are still reachable in loss record 4 of 17
+==20083==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x4010DE: table::table(int, unsigned char, int) (table.cpp:97)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 81 bytes in 1 blocks are still reachable in loss record 5 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x402147: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:49)
+==20083==    by 0x401195: table::table(int, unsigned char, int) (table.cpp:105)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 81 bytes in 1 blocks are still reachable in loss record 6 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x402162: priorityQueue::priorityQueue(int, unsigned short**) (pQueue.cpp:50)
+==20083==    by 0x401195: table::table(int, unsigned char, int) (table.cpp:105)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 168 bytes in 56 blocks are still reachable in loss record 7 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x40181F: table::solve() (table.cpp:198)
+==20083==    by 0x40249F: main (main.cpp:36)
+==20083== 
+==20083== 258 bytes in 86 blocks are indirectly lost in loss record 8 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x40181F: table::solve() (table.cpp:198)
+==20083==    by 0x40249F: main (main.cpp:36)
+==20083== 
+==20083== 328 bytes in 1 blocks are still reachable in loss record 9 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x400FB9: table::table(int, unsigned char, int) (table.cpp:80)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 656 bytes in 1 blocks are still reachable in loss record 10 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x400FE6: table::table(int, unsigned char, int) (table.cpp:82)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 656 bytes in 1 blocks are still reachable in loss record 11 of 17
+==20083==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x40110C: table::table(int, unsigned char, int) (table.cpp:99)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 656 bytes in 41 blocks are still reachable in loss record 12 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x40122F: table::addRule(int, int, int, int) (table.cpp:114)
+==20083==    by 0x40248D: main (main.cpp:33)
+==20083== 
+==20083== 3,440 bytes in 86 blocks are definitely lost in loss record 13 of 17
+==20083==    at 0x4C2A0FC: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x401179: table::table(int, unsigned char, int) (table.cpp:105)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 7,052 bytes in 86 blocks are definitely lost in loss record 14 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x401046: table::table(int, unsigned char, int) (table.cpp:84)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 13,284 bytes in 82 blocks are still reachable in loss record 15 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x401046: table::table(int, unsigned char, int) (table.cpp:84)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 29,154 (28,896 direct, 258 indirect) bytes in 86 blocks are definitely lost in loss record 16 of 17
+==20083==    at 0x4C2BA4A: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x40110C: table::table(int, unsigned char, int) (table.cpp:99)
+==20083==    by 0x4023E1: main (main.cpp:22)
+==20083== 
+==20083== 72,704 bytes in 1 blocks are still reachable in loss record 17 of 17
+==20083==    at 0x4C29BBE: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20083==    by 0x4EC0A1F: pool (eh_alloc.cc:123)
+==20083==    by 0x4EC0A1F: __static_initialization_and_destruction_0 (eh_alloc.cc:250)
+==20083==    by 0x4EC0A1F: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:326)
+==20083==    by 0x400F4F9: call_init.part.0 (in /usr/lib/ld-2.24.so)
+==20083==    by 0x400F60A: _dl_init (in /usr/lib/ld-2.24.so)
+==20083==    by 0x4000DA9: ??? (in /usr/lib/ld-2.24.so)
+==20083== 
+==20083== LEAK SUMMARY:
+==20083==    definitely lost: 39,388 bytes in 258 blocks
+==20083==    indirectly lost: 258 bytes in 86 blocks
+==20083==      possibly lost: 0 bytes in 0 blocks
+==20083==    still reachable: 88,810 bytes in 189 blocks
+==20083==         suppressed: 0 bytes in 0 blocks
+==20083== 
+==20083== For counts of detected and suppressed errors, rerun with: -v
+==20083== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
