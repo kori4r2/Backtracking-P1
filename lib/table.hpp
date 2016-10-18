@@ -27,6 +27,7 @@ class table{
 
 	private:
 		// Variaveis
+		int _opCounter;
 		int _D; // dimensoes
 		int _nRules; // numero de regras aplicadas
 		int _tracking; // posicao atual na lista de possibilidades (leia-se profundidade do backtracking)
