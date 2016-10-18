@@ -1,5 +1,5 @@
 #include "table.hpp"
-#include <iostream>
+#include <cstdio>
 
 #define HEURISTICA 0 // 0 = apenas backtracking, 1 = utilizando MVR, 2 = utilizando MVR e look-ahead
 

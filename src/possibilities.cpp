@@ -1,5 +1,6 @@
 #include "possibilities.hpp"
 #include <climits>
+#include <cstdio>
 
 int getNumber(const possibilities p){
 	possibilities test = 1;
@@ -24,7 +25,7 @@ int nextPossibility(const possibilities p, const int D, const int current){
 	for(int i = current+1; i < D; i++){
 		// Caso encontre uma possibilidade valida, ela sera o retorno
 		if((test & p) != IMPOSSIBLE)
-			return i;
+			return (i + 1);
 		test = test << 1;
 	}
 	// Se nao houver mais valores possiveis, retorna 0
@@ -32,7 +33,7 @@ int nextPossibility(const possibilities p, const int D, const int current){
 }
 
 possibilities addPossibility(const possibilities p, const int v){
-	possibilities v2 = v;
+	possibilities v2 = (possibilities)v;
 	v2 = 1 << (v2-1);
 	return (p | v2);
 }
