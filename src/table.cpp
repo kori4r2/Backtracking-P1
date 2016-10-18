@@ -243,10 +243,9 @@ fprintf(stderr, "x = %d, y = %d\n", x, y);
 	}
 	if(_tracking < 0)
 		fprintf(stderr, "Nenhuma solucao foi encontrada, atribuicoes = %d\n", _opCounter);
-	else{
+	else
 		fprintf(stderr, "we did it!, atribuicoes = %d\n", _opCounter);
-		printTable();
-	}
+	printTable();
 /*	if(_tracking >= (_D * _D))
 		printTable();
 	else if(_tracking < 0)
